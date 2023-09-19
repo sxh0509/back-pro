@@ -2,14 +2,9 @@
 import { ref } from 'vue'
 import type { ComponentMap } from './types/login-type'
 
-//免密登录组件
-import PhoneCodeForm from './components/PhoneCodeForm.vue'
-//账号登录组件
-import AccountForm from './components/AccountForm.vue'
-//扫码登录组件
-import QcodeForm from './components/QcodeForm.vue'
+import { PhoneCodeForm, AccountForm, QcodeForm } from './components'
 
-//全局北京颜色
+//全局背景颜色
 const bgColor = 'linear-gradient(0deg, #2196f3, #00bcd4, #00bcd4, #03a9f4)'
 const loginPanelWidth = '800px'
 const loginPanelHeight = '400px'
@@ -48,18 +43,9 @@ const changeTab = (index: number) => {
           >
             {{ item.name }}
           </div>
-          <!-- <div @click="changeTab(2)" :class="{ selected: currentTab === 2 }" class="tab-item">
-            账号登录
-          </div>
-          <div @click="changeTab(3)" :class="{ selected: currentTab === 3 }" class="tab-item">
-            扫码登录
-          </div> -->
         </div>
         <div class="tabs-content">
           <component :is="tabList[currentTab].componentName"></component>
-          <!-- <PhoneCodeForm v-if="currentTab === 1" />
-          <AccountForm v-else-if="currentTab === 2" />
-          <QcodeForm v-else /> -->
         </div>
       </div>
     </div>
@@ -84,7 +70,7 @@ const changeTab = (index: number) => {
     background-color: #fff;
     margin: 0 auto;
     margin-top: calc((100vh - v-bind(loginPanelHeight)) / 2);
-    box-shadow: 0 0 20px 2px #4a4a8b;
+    box-shadow: 0 0 20px 2px #000055;
     display: flex;
 
     .login-logo-panel {
@@ -125,8 +111,9 @@ const changeTab = (index: number) => {
         }
       }
 
-      // .tabs-content {
-      // }
+      .tabs-content {
+        padding: 20px 45px 0;
+      }
     }
   }
 
